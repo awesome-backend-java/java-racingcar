@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -64,16 +63,14 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void calculate_Test(){
-		//split String
+	public void calculate_test(){
 		String[] splitCalStr = calculator.splitStr("1 + 2 + 3 * 4 / 5");
 		int result = calculator.opNumSplitSave(splitCalStr);
 		assertEquals(result, 4);
 	}
 
 	@Test
-	public void calculate_Test2(){
-		//split String
+	public void calculate_test2(){
 		String[] splitCalStr = calculator.splitStr("0 + 0 + 0 * 00");
 		int result = calculator.opNumSplitSave(splitCalStr);
 		assertEquals(result, 0);
