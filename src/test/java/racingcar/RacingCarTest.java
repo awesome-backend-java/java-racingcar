@@ -1,39 +1,37 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utils.Utils;
 
 class RacingCarTest {
-	RacingCar racingCar;
-	String[] testRcCars;
+	private RacingCar racingCar;
+	private Utils utils;
 
 	@BeforeEach
 	public void setup(){
 		racingCar = new RacingCar();
-		testRcCars = racingCar.splitCars("a,b,c");
+		utils = new Utils();
 	}
 
 	@Test
 	void input_car_test(){
-		String[] res = racingCar.splitCars("a,b,c");
-		Assertions.assertEquals(res[0], "a");
+		String[] result = utils.splitByComma("a,b,c");
+		Assertions.assertEquals(result[0], "a");
 	}
 
 	@Test
 	void select_winner_test() {
-		Map<String, Integer> mapTest = new HashMap<>();
-		mapTest.put("a", 3);
-		mapTest.put("b", 3);
-		mapTest.put("c", 2);
-		List<String> res = new ArrayList<>();
-		res.add("a");
-		res.add("b");
-		Assertions.assertEquals(racingCar.selectWinner(testRcCars, mapTest), res);
+		List<Car> cars = new ArrayList<>();
+		cars.add(new Car("a", 3));
+		cars.add(new Car("b", 3));
+		cars.add(new Car("c", 2));
+		List<String> result = new ArrayList<>();
+		result.add("a");
+		result.add("b");
+		Assertions.assertEquals(racingCar.selectWinner(cars), result);
 	}
 }

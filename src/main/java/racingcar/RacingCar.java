@@ -1,68 +1,71 @@
 package racingcar;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import utils.Utils;
 
 public class RacingCar {
 
-	public String[] inputCars() {
+	public List<Car> inputCars() {
 		System.out.println("경주할 자동차 이름을 입력하세요 (이름은 쉼표(,)를 기준으로 구분)");
 		Scanner sc = new Scanner(System.in);
-		String carStr = sc.nextLine();
-		return splitCars(carStr);
+		String input = sc.nextLine();
+		Utils utils = new Utils();
+		String[] values = utils.splitByComma(input);
+		List<Car> cars = new ArrayList<>();
+		for(String value : values) {
+			Car car = new Car(value, 0);
+			cars.add(car);
+		}
+		return cars;
 	}
 
-	public String[] splitCars(String carStr){
-		return carStr.split(",");
-	}
-
-	public int inputRaceNum(String[] racingCars){
+	public int inputRaceNumber() {
 		System.out.println("시도할 횟수는 몇회인가요?");
 		Scanner sc = new Scanner(System.in);
-		int racingNum = Integer.parseInt(sc.nextLine());
-		return racingNum;
+		int racingNumber = Optional.ofNullable(sc)
+				.map(s -> Integer.parseInt(s.nextLine()))
+				.orElseThrow(NumberFormatException::new);
+		return racingNumber;
 	}
 
-	public List<String> raceStart(String[] racingCars, int racingNum){
-		Map<String, Integer> rcTotal = new HashMap<>();
-		for(String car : racingCars){
-			rcTotal.put(car, 0);
+	public List<String> raceStart(List<Car> cars, int racingNumber) {
+		for(int i = 0; i < racingNumber; i++){
+			printRacingCar(cars);
 		}
-		for(int i = 0; i < racingNum; i++){
-			printRacingCar(racingCars, rcTotal);
-		}
-		return selectWinner(racingCars, rcTotal);
+		return selectWinner(cars);
 	}
 
-	public void randomNum(String[] racingCars, int idx, Map<String, Integer> rcTotal){
+	private void makeRandomNumber(List<Car> cars, int idx) {
 		int randNum = (int)(Math.random()*10);
 		if(randNum > 3){
-			rcTotal.put(racingCars[idx], rcTotal.get(racingCars[idx])+1);
+			cars.get(idx).addPosition();
 		}
 	}
 
-	public void printRacingCar(String[] racingCars, Map<String, Integer> rcTotal){
-		for(int i = 0; i < racingCars.length; i++){
-			randomNum(racingCars, i, rcTotal);
-			int num = rcTotal.get(racingCars[i]);
-			System.out.println(racingCars[i] + " : " + String.join("", Collections.nCopies(num, "-")));
+	private void printRacingCar(List<Car> cars) {
+		for(int i = 0; i < cars.size(); i++){
+			makeRandomNumber(cars, i);
+			int num = cars.get(i).getPosition();
+			System.out.println(cars.get(i).getName() + " : " + String.join("", Collections.nCopies(num, "-")));
 		}
 		System.out.println();
 	}
 
-	public List<String> selectWinner(String[] racingCars, Map<String, Integer> rcTotal){
-		int len = 0;
-		for(String key : rcTotal.keySet()){
-			len = Math.max(len, rcTotal.get(key));
-		}
-		int finalLen = len;
-		return Arrays.stream(racingCars)
-			.filter(s -> rcTotal.get(s) == finalLen)
-			.collect(Collectors.toList());
+	public List<String> selectWinner(List<Car> cars) {
+		Optional<Integer> numberOrder = cars.stream()
+				.sorted(Comparator.comparing(Car::getPosition).reversed())
+				.findFirst()
+				.map(Car::getPosition);
+
+		return cars.stream()
+				.filter(s -> s.getPosition() == numberOrder.get())
+				.map(Car::getName)
+				.collect(Collectors.toList());
 	}
 }
