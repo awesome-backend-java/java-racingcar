@@ -8,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static stringCalculator.InputOutputSystem.answer;
 
 public class InputOutputSystemTest {
@@ -20,7 +21,7 @@ public class InputOutputSystemTest {
             String data = "2+2*3";
             System.setIn(new ByteArrayInputStream(data.getBytes()));
             inputOutputSystem.inputString();
-            Assertions.assertEquals(answer,12);
+            assertThat(answer.equals(12));
         } catch (IOException e) {
             e.printStackTrace();
         }
