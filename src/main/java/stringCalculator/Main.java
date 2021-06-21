@@ -6,7 +6,7 @@ public class Main{
 
     public static void main(String[] args) throws IOException {
         InputOuputSystem inputOuputSystem = new InputOuputSystem();
-        while(inputOuputSystem.solve());
+        while(inputOuputSystem.OuputString());
     }
 
 }

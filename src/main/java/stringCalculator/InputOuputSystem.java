@@ -8,7 +8,7 @@ public class InputOuputSystem {
 
     private BufferedReader br;
 
-    public boolean solve() throws IOException {
+    public boolean OuputString() throws IOException {
         String answer = inputString();
         if(!answer.equals("0")){
             System.out.println(answer);
