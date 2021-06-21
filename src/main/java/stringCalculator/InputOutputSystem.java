@@ -17,15 +17,15 @@ public class InputOutputSystem {
     }
 
 
-    private void OutputString(String answer){
+    private void OutputString(String answer) {
         System.out.println(answer);
     }
 
-    private boolean SystemStatus() throws IOException {
-        if(!answer.equals("0")){
+    private boolean SystemStatus() {
+        if (!answer.equals("0")) {
             OutputString(answer);
             return true;
-        };
+        }
         return false;
     }
 
