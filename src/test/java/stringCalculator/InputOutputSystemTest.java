@@ -18,10 +18,9 @@ public class InputOutputSystemTest {
         InputOutputSystem inputOutputSystem = new InputOutputSystem();
         try {
             String data = "2+2*3";
-            InputStream stdin = System.in;
             System.setIn(new ByteArrayInputStream(data.getBytes()));
             inputOutputSystem.inputString();
-            Assertions.assertEquals(answer,data);
+            Assertions.assertEquals(answer,12);
         } catch (IOException e) {
             e.printStackTrace();
         }
