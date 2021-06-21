@@ -5,8 +5,8 @@ import java.io.IOException;
 public class Main{
 
     public static void main(String[] args) throws IOException {
-        InputOuputSystem inputOuputSystem = new InputOuputSystem();
-        while(inputOuputSystem.OuputString());
+        InputOutputSystem inputOutputSystem = new InputOutputSystem();
+        while(inputOutputSystem.inputString());
     }
 
 }
