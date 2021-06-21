@@ -20,7 +20,7 @@ public class ArgsSplit {
             return String.valueOf(ch);
         }
         if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
-            return " " + ch + " ";
+            return " "+ch+" ";
         }
         return "";
     }
