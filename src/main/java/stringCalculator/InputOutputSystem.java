@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class InputOutputSystem {
 
-    private static String answer;
+    public static String answer;
     private BufferedReader br;
 
     public boolean inputString() throws IOException {
@@ -15,12 +15,9 @@ public class InputOutputSystem {
         answer = br.readLine();
         return SystemStatus();
     }
-
-
     private void OutputString(String answer) {
         System.out.println(answer);
     }
-
     private boolean SystemStatus() {
         if (!answer.equals("0")) {
             OutputString(answer);
