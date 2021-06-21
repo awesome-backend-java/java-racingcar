@@ -13,6 +13,6 @@ public class ArgsSplitTest {
         ArgsSplit argsSplit = new ArgsSplit();
         String data = "12+2)_*3-2+(2+3)*5";
 
-        assertThat(argsSplit.divide(data).equals(new String[]{"12","+","2","*","3","-","2","+","2","+","3","*","5"}));
+        assertThat(argsSplit.divide(data).equals(275));
     }
 }
