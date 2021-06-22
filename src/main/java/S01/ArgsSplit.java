@@ -1,13 +1,18 @@
 package S01;
 
 public class ArgsSplit {
-
-    public String[] expression;
-
+    /*
+            ArgsSplit Class
+            ver 1.0
+            2020.06.22
+     */
+    public String[] expression; // 표현식
+    // 구별된 부호와 숫자 리턴
     public String[] divide(String args) {
         expression = findWord(args);
         return expression;
     }
+    // String[] 으로 부호와 숫자 구별
     private String[] findWord(String args) {
         String s = "";
         for (int i = 0; i < args.length(); i++) {
@@ -15,6 +20,7 @@ public class ArgsSplit {
         }
         return s.split(" ");
     }
+    // 숫자면 붙여서 부호면 띄어쓰기
     private String compare(char ch) {
         if ('0' <= ch && ch <= '9'|| ch=='.') {
             return String.valueOf(ch);
