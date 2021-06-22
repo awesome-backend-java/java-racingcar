@@ -1,5 +1,6 @@
-package S01;
+package Test01;
 
+import S01.InputOutputSystem;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
