@@ -16,11 +16,11 @@ public class ArgsSplit {
         return s.split(" ");
     }
     private String compare(char ch) {
-        if ('0' <= ch && ch <= '9'||ch=='.') {
+        if ('0' <= ch && ch <= '9'|| ch=='.') {
             return String.valueOf(ch);
         }
         if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
-            return " "+ch+" ";
+            return " " + ch +" ";
         }
         return "";
     }
