@@ -20,7 +20,7 @@ public class ArgsSplit {
         }
         return s.split(" ");
     }
-    // 숫자면 붙여서 부호면 띄어쓰기
+    // 숫자면 붙여서 부호면 띄어쓰기, +,-,*,/ 이외의 문자 무시
     private String compare(char ch) {
         if ('0' <= ch && ch <= '9'|| ch=='.') {
             return String.valueOf(ch);
