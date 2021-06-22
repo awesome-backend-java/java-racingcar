@@ -1,4 +1,4 @@
-package stringCalculator;
+package S01;
 
 import java.io.IOException;
 

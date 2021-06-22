@@ -1,4 +1,4 @@
-package stringCalculator;
+package S01;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class InputOutputSystem {
         System.out.print("계산할 값을 입력해주세요(0만 입력시 종료) : ");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
-            answer = calculatorOptional.compute(br.readLine());
+            answer = calculatorOptional.computeAll(br.readLine());
             return SystemStatus();
         }catch (Exception error){
             System.out.println("-------- 잘못된 입력입니다. 다시 입력해주세요 --------");

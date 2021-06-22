@@ -1,4 +1,4 @@
-package stringCalculator;
+package S01;
 
 public class ArgsSplit {
 
