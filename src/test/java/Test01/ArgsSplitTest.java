@@ -8,7 +8,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class ArgsSplitTest {
 
-    @DisplayName("divide 메서드 Test")
+    @DisplayName("계산 부호를 제외한 나머지 문자들은 무시한다.")
     @Test
     public void divide(){
         ArgsSplit argsSplit = new ArgsSplit();

@@ -11,14 +11,20 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class CalculatorOptionalTest {
 
-    @DisplayName("computeAll 메서드 Test")
+    @DisplayName("정상적으로 소수점 덧셈을 수행한다. 2.6+3 = 5.6")
     @Test
-    public void computeAll() {
+    public void test1() {
         CalculatorOptional calculatorOptional = new CalculatorOptional();
-        String data = "2+3-4*1+5/2*4";
+        String data = "2.6+3";
+        double answer = Double.parseDouble(calculatorOptional.computeAll(data));
+        Assertions.assertEquals(answer,5.6);
+    }
+    @DisplayName("계산할 부호가 연속으로 나올시 오류를 출력한다.")
+    @Test
+    public void test2() {
+        CalculatorOptional calculatorOptional = new CalculatorOptional();
         String errorData = "2+3-4*1+5+/2*-4";
 
-        assertThat(calculatorOptional.computeAll(data).equals("12"));
         Assertions.assertThrows(Exception.class,()->calculatorOptional.computeAll(errorData));
     }
 }
