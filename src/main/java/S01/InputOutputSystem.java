@@ -7,36 +7,37 @@ import java.io.InputStreamReader;
 public class InputOutputSystem {
 
     private final CalculatorOptional calculatorOptional;
-    public String answer;
+    private String answer;
+    private final String endCalculator; // 게임종료
 
     public InputOutputSystem() {
         calculatorOptional = new CalculatorOptional();
+        endCalculator = "0";
     }
-
     //입력정보를 받고 받은 정보 CalculatorOptional 클래스로 전달
-    public boolean inputString() throws IOException {
+    public boolean input() throws IOException {
         System.out.print("계산할 값을 입력해주세요(0만 입력시 종료) : ");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             answer = calculatorOptional.computeAll(br.readLine());
-            return SystemStatus();
+            return systemStatus();
         } catch (Exception error) {
             System.out.println("-------- 잘못된 입력입니다. 다시 입력해주세요 --------");
             return true;
         }
     }
-
-    private void OutputString(String answer) {
-        System.out.println(answer);
-    }
-
     // 입력한 정보가 0일때 종료
-    private boolean SystemStatus() {
-        if (!answer.equals("0")) {
-            OutputString(answer);
+    private boolean systemStatus() {
+        if (!answer.equals(endCalculator)) {
+            output(answer);
             return true;
         }
         return false;
     }
-
+    private void output(String answer) {
+        System.out.println(answer);
+    }
+    public String getAnswer() {
+        return answer;
+    }
 }
