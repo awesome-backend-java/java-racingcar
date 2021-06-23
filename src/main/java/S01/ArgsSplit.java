@@ -3,10 +3,18 @@ package S01;
 public class ArgsSplit {
 
     private String[] expression;
-    private final StringBuilder sb;
+    private final StringBuilder wordSplit; // 숫자와 부호 분리
+    private final char zero = '0';
+    private final char nine = '9';
+    private final char decimal = '.';
+    private final char plus = '+';
+    private final char minus = '-';
+    private final char mul = '*';
+    private final char div = '/';
+
 
     public ArgsSplit(){
-        sb = new StringBuilder();
+        wordSplit = new StringBuilder();
     }
     // 구별된 부호와 숫자 리턴
     public String[] divide(String args) {
@@ -15,20 +23,20 @@ public class ArgsSplit {
     }
     // String[] 으로 부호와 숫자 구별
     private String[] findWord(String args) {
-        sb.delete(0,sb.length());
+        wordSplit.delete(0, wordSplit.length());
         for (int i = 0; i < args.length(); i++) {
-            sb.append(compare(args.charAt(i)));
+            wordSplit.append(compare(args.charAt(i)));
         }
-        return sb.toString()
+        return wordSplit.toString()
                 .split(" ");
     }
     // 숫자면 붙여서 부호면 띄어쓰기, +,-,*,/ 이외의 문자 무시
-    private String compare(char ch) {
-        if ('0' <= ch && ch <= '9' || ch == '.') {
-            return String.valueOf(ch);
+    private String compare(char word) {
+        if (zero <= word && word <= nine || word == decimal) {
+            return String.valueOf(word);
         }
-        if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
-            return " " + ch + " ";
+        if (word == plus || word == minus || word == mul || word == div) {
+            return " " + word + " ";
         }
         return "";
     }
