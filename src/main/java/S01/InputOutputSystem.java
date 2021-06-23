@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 public class InputOutputSystem {
 
     private final CalculatorOptional calculatorOptional;
-    private String answer;
     private final String endCalculator; // 게임종료
+    private String answer;
 
     public InputOutputSystem() {
         calculatorOptional = new CalculatorOptional();
