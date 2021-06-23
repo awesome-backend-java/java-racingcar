@@ -1,19 +1,11 @@
 package S01;
 
-import java.util.HashMap;
-import java.util.function.BiFunction;
-
 public class CalculatorOptional {
-    /*
-        CalculatorOptional Class
-        ver 1.0
-        2020.06.22
-     */
-    private String[] expression;                // 표현식
-    private double answer;                      // 정답
-    private final double standardDecimal = 0.1; // 소수점 표현
-    private final ArgsSplit argsSplit;          // 숫자, 부호 구별
-    private final Calculator calculator;        // 계산
+    private String[] expression;
+    private double answer;
+    private final double standardDecimal = 0.1;
+    private final ArgsSplit argsSplit;
+    private final Calculator calculator;
 
     // ArgsSplit,HashMap class 초기화 설정
     public CalculatorOptional() {
@@ -26,14 +18,14 @@ public class CalculatorOptional {
         expression = argsSplit.divide(args); // 숫자와 부호 String[] 으로 나누기
         answer = convert(expression[0]);    // 처음 숫자 정보 입력
         for (int i = 1; i < expression.length; i += 2) {
-            answer = compute(answer,expression[i],convert(expression[i+1]));
+            answer = compute(answer, expression[i], convert(expression[i + 1]));
         }
         return String.valueOf(answer);
     }
 
     // 부호에 따른 계산
-    private double compute(double x,String op,double y) {
-        return calculator.compute(x,op,y);
+    private double compute(double x, String op, double y) {
+        return calculator.compute(x, op, y);
     }
 
     // double형 소수점 변환
