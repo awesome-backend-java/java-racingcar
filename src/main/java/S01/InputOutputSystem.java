@@ -28,11 +28,11 @@ public class InputOutputSystem {
     }
     // 입력한 정보가 0일때 종료
     private boolean systemStatus() {
-        if (!answer.equals(endCalculator)) {
-            output(answer);
-            return true;
+        if (answer.equals(endCalculator)) {
+            return false;
         }
-        return false;
+        output(answer);
+        return true;
     }
     private void output(String answer) {
         System.out.println(answer);
