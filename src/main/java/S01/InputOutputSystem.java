@@ -19,13 +19,16 @@ public class InputOutputSystem {
         expression = "";
     }
 
-    //입력정보를 받고 받은 정보 CalculatorOptional 클래스로 전달
-    public void input() throws IOException {
+    public void question() throws IOException {
         expression = print().readLine();
+    }
+
+    public void compute() {
         try {
             answer = calculatorOptional.computeAll(expression);
             output(answer);
         } catch (Exception error) {
+            System.out.println(expression);
             System.out.println("-------- 잘못된 입력입니다. 다시 입력해주세요 --------");
         }
     }
@@ -35,13 +38,13 @@ public class InputOutputSystem {
         return !expression.equals(endCalculator);
     }
 
+    private void output(String answer) {
+        System.out.println(answer);
+    }
+
     private BufferedReader print() {
         System.out.print("계산할 값을 입력해주세요(0만 입력시 종료) : ");
         return bufferedReader;
-    }
-
-    private void output(String answer) {
-        System.out.println(answer);
     }
 
     public String getAnswer() {
