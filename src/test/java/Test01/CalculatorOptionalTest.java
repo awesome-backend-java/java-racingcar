@@ -6,9 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
-
 public class CalculatorOptionalTest {
 
     @DisplayName("정상적으로 소수점 덧셈을 수행한다. 2.6+3 = 5.6")
