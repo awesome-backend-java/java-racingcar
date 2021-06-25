@@ -19,11 +19,11 @@ public class CalculatorTest {
     @Test
     @DisplayName("정해진 부호말고 다른 부호가 들어와 에러가 생긴다.")
     public void errorCheck() {
-        Assertions.assertThrows(Exception.class, () -> calculator.compute(2.0, "34", 3.0));
+        Assertions.assertThrows(Exception.class, () -> calculator.compute(2.0, ".", 3.0));
     }
 
     @Test
-    @DisplayName("정상적으로 두 유리수를 더한다. 2.5+5.7=8.2")
+    @DisplayName("정상적으로 두 유리수를 더한다.")
     public void addTwoDecimal() {
         frontName = 2.5;
         operation = "+";
@@ -32,7 +32,7 @@ public class CalculatorTest {
     }
 
     @Test
-    @DisplayName("정상적으로 두 유리수를 뺀다. 6.3-2.7=3.6")
+    @DisplayName("정상적으로 두 유리수를 뺀다.")
     public void minusTwoDecimal() {
         frontName = 6.3;
         operation = "-";
@@ -41,7 +41,7 @@ public class CalculatorTest {
     }
 
     @Test
-    @DisplayName("정상적으로 두 유리수를 곱한다. 2.4*3.5=8.4")
+    @DisplayName("정상적으로 두 유리수를 곱한다.")
     public void mulTwoDecimal() {
         frontName = 2.4;
         operation = "*";
@@ -50,7 +50,7 @@ public class CalculatorTest {
     }
 
     @Test
-    @DisplayName("정상적으로 두 유리수를 나눈다. 5.5/1.1=5")
+    @DisplayName("정상적으로 두 유리수를 나눈다.")
     public void divTwoDecimal() {
         frontName = 5.5;
         operation = "/";
@@ -59,7 +59,7 @@ public class CalculatorTest {
     }
 
     @Test
-    @DisplayName("정상적으로 두 정수를 더한다. 2+2=4")
+    @DisplayName("정상적으로 두 정수를 더한다.")
     public void addTwoNumber() {
         frontName = 2;
         operation = "+";
@@ -68,7 +68,7 @@ public class CalculatorTest {
     }
 
     @Test
-    @DisplayName("정상적으로 두 정수를 뺀다. 6-2=4")
+    @DisplayName("정상적으로 두 정수를 뺀다.")
     public void minusTwoNumber() {
         frontName = 6;
         operation = "-";
@@ -77,7 +77,7 @@ public class CalculatorTest {
     }
 
     @Test
-    @DisplayName("정상적으로 두 정수를 곱한다. 2*3=6")
+    @DisplayName("정상적으로 두 정수를 곱한다.")
     public void mulTwoNumber() {
         frontName = 2;
         operation = "*";
@@ -86,7 +86,7 @@ public class CalculatorTest {
     }
 
     @Test
-    @DisplayName("정상적으로 두 정수를 나눈다. 2/2=1")
+    @DisplayName("정상적으로 두 정수를 나눈다.")
     public void divTwoNumber() {
         frontName = 2;
         operation = "/";
