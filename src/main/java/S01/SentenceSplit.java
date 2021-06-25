@@ -13,14 +13,16 @@ public class SentenceSplit {
     private final char div = '/';
 
 
-    public SentenceSplit(){
+    public SentenceSplit() {
         wordSplit = new StringBuilder();
     }
+
     // 구별된 부호와 숫자 리턴
     public String[] divide(String args) {
         expression = findWord(args);
         return expression;
     }
+
     // String[] 으로 부호와 숫자 구별
     private String[] findWord(String args) {
         wordSplit.delete(0, wordSplit.length());
@@ -31,6 +33,7 @@ public class SentenceSplit {
         return wordSplit.toString()
                 .split(" ");
     }
+
     // 숫자와 부호를 구별
     private String compareByWord(char word) {
         if (zero <= word && word <= nine || word == decimal) {
