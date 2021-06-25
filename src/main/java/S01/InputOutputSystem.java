@@ -6,8 +6,9 @@ import java.io.InputStreamReader;
 
 public class InputOutputSystem {
 
+    private static final String endCalculator = "0"; // 게임종료
+
     private final CalculatorOptional calculatorOptional;
-    private final String endCalculator; // 게임종료
     private final BufferedReader bufferedReader;
     private String answer;
     private String expression;
@@ -15,7 +16,6 @@ public class InputOutputSystem {
     public InputOutputSystem() {
         calculatorOptional = new CalculatorOptional();
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        endCalculator = "0";
         expression = "";
     }
 

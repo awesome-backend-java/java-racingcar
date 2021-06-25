@@ -1,6 +1,9 @@
 package S01;
 
 public class CalculatorOptional {
+
+    private static final double standardDecimal = 0.1;
+
     private final SentenceSplit argsSplit;
     private final Calculator calculator;
 
@@ -33,17 +36,16 @@ public class CalculatorOptional {
 
     // double형 소수점 변환
     private double toDouble(String sentence) {
-        int naturalNumber = sentence.indexOf('.');
-        if (naturalNumber < 0) {
+        int naturalNumberIndex = sentence.indexOf('.');
+        if (naturalNumberIndex < 0) {
             return Double.parseDouble(sentence);
         }
-        return toDecimal(sentence, naturalNumber);
+        return toDecimal(sentence, naturalNumberIndex);
     }
 
-    private double toDecimal(String sentence, int naturalNumber) {
-        int decimalCount = sentence.length() - naturalNumber - 1;
+    private double toDecimal(String sentence, int naturalNumberIndex) {
+        int decimalCount = sentence.length() - naturalNumberIndex - 1;
         String expression = sentence.replace(".", "");
-        double standardDecimal = 0.1;
 
         return Long.parseLong(expression) * Math.pow(standardDecimal, decimalCount);
     }

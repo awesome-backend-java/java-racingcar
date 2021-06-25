@@ -1,15 +1,14 @@
 package S01;
 
 public class SentenceSplit {
-    private final char zero = '0';
-    private final char nine = '9';
-    private final char decimal = '.';
-    private final char plus = '+';
-    private final char minus = '-';
-    private final char mul = '*';
-    private final char div = '/';
+    private static final char ZERO = '0';
+    private static final char NINE = '9';
+    private static final char DECIMAL = '.';
+    private static final char PLUS = '+';
+    private static final char MINUS = '-';
+    private static final char MUL = '*';
+    private static final char DIV = '/';
 
-    private String[] expression;
     private final StringBuilder wordSplit; // 숫자와 부호 분리
 
     public SentenceSplit() {
@@ -18,8 +17,7 @@ public class SentenceSplit {
 
     // 구별된 부호와 숫자 리턴
     public String[] divide(String args) {
-        expression = findWord(args);
-        return expression;
+        return findWord(args);
     }
 
     // String[] 으로 부호와 숫자 구별
@@ -35,10 +33,10 @@ public class SentenceSplit {
 
     // 숫자와 부호를 구별
     private String compareByWord(char word) {
-        if (zero <= word && word <= nine || word == decimal) {
+        if (ZERO <= word && word <= NINE || word == DECIMAL) {
             return String.valueOf(word); // 숫자면 계속 문자를 이어붙인다.
         }
-        if (word == plus || word == minus || word == mul || word == div) {
+        if (word == PLUS || word == MINUS || word == MUL || word == DIV) {
             return " " + word + " "; // 부호라면 띄어쓰기로 분리한다.
         }
         return "";
