@@ -17,7 +17,8 @@ public class InputOutputSystemTest {
         System.setIn(new ByteArrayInputStream(data.getBytes()));
         InputOutputSystem inputOutputSystem = new InputOutputSystem();
         try {
-            inputOutputSystem.input();
+            inputOutputSystem.question();
+            inputOutputSystem.compute();
             double answer = Double.parseDouble(inputOutputSystem.getAnswer());
             Assertions.assertEquals(answer,6);
         } catch (IOException e) {
