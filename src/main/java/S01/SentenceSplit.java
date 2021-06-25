@@ -1,9 +1,6 @@
 package S01;
 
 public class SentenceSplit {
-
-    private String[] expression;
-    private final StringBuilder wordSplit; // 숫자와 부호 분리
     private final char zero = '0';
     private final char nine = '9';
     private final char decimal = '.';
@@ -12,6 +9,8 @@ public class SentenceSplit {
     private final char mul = '*';
     private final char div = '/';
 
+    private String[] expression;
+    private final StringBuilder wordSplit; // 숫자와 부호 분리
 
     public SentenceSplit() {
         wordSplit = new StringBuilder();
