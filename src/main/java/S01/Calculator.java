@@ -17,7 +17,7 @@ public class Calculator {
     }
 
     // 부호에 따른 계산
-    public double compute(double x, String op, double y) {
-        return calculatorMap.get(op).apply(x, y);
+    public double compute(double frontNumber, String operation, double backNumber) {
+        return calculatorMap.get(operation).apply(frontNumber, backNumber);
     }
 }
