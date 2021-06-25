@@ -1,6 +1,6 @@
 package S01;
 
-public class ArgsSplit {
+public class SentenceSplit {
 
     private String[] expression;
     private final StringBuilder wordSplit; // 숫자와 부호 분리
@@ -13,7 +13,7 @@ public class ArgsSplit {
     private final char div = '/';
 
 
-    public ArgsSplit(){
+    public SentenceSplit(){
         wordSplit = new StringBuilder();
     }
     // 구별된 부호와 숫자 리턴
