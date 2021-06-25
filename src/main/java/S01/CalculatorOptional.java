@@ -19,9 +19,9 @@ public class CalculatorOptional {
 
     // 입력된 정보 3개 단위로 분리하며 계산
     private double divide(String[] expression) {
-        double answer = convertDouble(expression[0]);    // 처음 숫자 정보 입력
+        double answer = toDouble(expression[0]);    // 처음 숫자 정보 입력
         for (int i = 1; i < expression.length; i += 2) {
-            answer = compute(answer, expression[i], convertDouble(expression[i + 1]));
+            answer = compute(answer, expression[i], toDouble(expression[i + 1]));
         }
         return answer;
     }
@@ -32,15 +32,15 @@ public class CalculatorOptional {
     }
 
     // double형 소수점 변환
-    private double convertDouble(String sentence) {
+    private double toDouble(String sentence) {
         int naturalNumber = sentence.indexOf('.');
         if (naturalNumber < 0) {
             return Double.parseDouble(sentence);
         }
-        return convertDecimal(sentence, naturalNumber);
+        return toDecimal(sentence, naturalNumber);
     }
 
-    private double convertDecimal(String sentence, int naturalNumber) {
+    private double toDecimal(String sentence, int naturalNumber) {
         int decimalCount = sentence.length() - naturalNumber - 1;
         String expression = sentence.replace(".", "");
         double standardDecimal = 0.1;
