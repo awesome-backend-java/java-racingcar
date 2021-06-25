@@ -20,7 +20,7 @@ public class InputOutputSystemTest {
             inputOutputSystem.question();
             inputOutputSystem.compute();
             double answer = Double.parseDouble(inputOutputSystem.getAnswer());
-            Assertions.assertEquals(answer,6);
+            Assertions.assertEquals(answer, 6);
         } catch (IOException e) {
             e.printStackTrace();
         }
