@@ -6,7 +6,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         InputOutputSystem inputOutputSystem = new InputOutputSystem();
-        while (inputOutputSystem.input());
+        while (inputOutputSystem.systemStatus()){
+            inputOutputSystem.input();
+        }
     }
 
 }

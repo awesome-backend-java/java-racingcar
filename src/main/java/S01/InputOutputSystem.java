@@ -2,37 +2,40 @@ package S01;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class InputOutputSystem {
 
     private final CalculatorOptional calculatorOptional;
     private final String endCalculator; // 게임종료
+    private final BufferedReader bufferedReader;
     private String answer;
+    private String expression;
 
     public InputOutputSystem() {
         calculatorOptional = new CalculatorOptional();
+        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         endCalculator = "0";
+        expression="";
     }
     //입력정보를 받고 받은 정보 CalculatorOptional 클래스로 전달
-    public boolean input() throws IOException {
-        System.out.print("계산할 값을 입력해주세요(0만 입력시 종료) : ");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public void input() throws IOException {
+        expression = print().readLine();
         try {
-            answer = calculatorOptional.computeAll(br.readLine());
-            return systemStatus();
+            answer = calculatorOptional.computeAll(expression);
+            output(answer);
         } catch (Exception error) {
             System.out.println("-------- 잘못된 입력입니다. 다시 입력해주세요 --------");
-            return true;
         }
     }
     // 입력한 정보가 0일때 종료
-    private boolean systemStatus() {
-        if (answer.equals(endCalculator)) {
-            return false;
-        }
-        output(answer);
-        return true;
+    public boolean systemStatus() {
+        return !expression.equals(endCalculator);
+    }
+    private BufferedReader print(){
+        System.out.print("계산할 값을 입력해주세요(0만 입력시 종료) : ");
+        return bufferedReader;
     }
     private void output(String answer) {
         System.out.println(answer);

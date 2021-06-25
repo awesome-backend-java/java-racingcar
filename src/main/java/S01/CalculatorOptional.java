@@ -4,12 +4,12 @@ public class CalculatorOptional {
     private String[] expression;
     private double answer;
     private final double standardDecimal = 0.1;
-    private final ArgsSplit argsSplit;
+    private final SentenceSplit argsSplit;
     private final Calculator calculator;
 
     // ArgsSplit,HashMap class 초기화 설정
     public CalculatorOptional() {
-        argsSplit = new ArgsSplit();
+        argsSplit = new SentenceSplit();
         calculator = new Calculator();
     }
 
