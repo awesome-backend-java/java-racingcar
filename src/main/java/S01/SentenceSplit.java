@@ -1,7 +1,5 @@
 package S01;
 
-import javax.swing.*;
-
 public class SentenceSplit {
     private static final char ZERO = '0';
     private static final char NINE = '9';
@@ -29,12 +27,13 @@ public class SentenceSplit {
             String word = compareByWord(args.charAt(i));
             wordSplit.append(word);
         }
-        check(wordSplit);
+        errorCheck(wordSplit);
         return wordSplit.toString()
                 .split(" ");
     }
-    private void check(StringBuilder sentence) throws Exception {
-        if(sentence.toString().contains("  ")){
+    private void errorCheck(StringBuilder sentence) throws Exception {
+        String expression = sentence.toString();
+        if(expression.contains("  ") || expression.contains("..")){
             throw new Exception();
         }
     }
