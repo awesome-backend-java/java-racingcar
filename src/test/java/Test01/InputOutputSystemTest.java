@@ -25,6 +25,7 @@ public class InputOutputSystemTest {
             e.printStackTrace();
         }
     }
+
     @DisplayName("정상적인 뺄셈으로 계산하여 출력한다.")
     @Test
     public void test2() {
@@ -40,6 +41,7 @@ public class InputOutputSystemTest {
             e.printStackTrace();
         }
     }
+
     @DisplayName("정상적인 곱셈으로 계산하여 출력한다.")
     @Test
     public void test3() {
@@ -55,6 +57,7 @@ public class InputOutputSystemTest {
             e.printStackTrace();
         }
     }
+
     @DisplayName("정상적인 나눗셈으로 계산하여 출력한다.")
     @Test
     public void test4() {
@@ -70,6 +73,7 @@ public class InputOutputSystemTest {
             e.printStackTrace();
         }
     }
+
     @DisplayName("정상적인 여러가지 연산을 계산한다.")
     @Test
     public void test5() {
@@ -85,6 +89,7 @@ public class InputOutputSystemTest {
             e.printStackTrace();
         }
     }
+
     @DisplayName("0을 입력시 0을 반환한다.")
     @Test
     public void test6() {
