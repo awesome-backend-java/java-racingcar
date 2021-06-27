@@ -31,9 +31,20 @@ public class SentenceSplit {
         return wordSplit.toString()
                 .split(" ");
     }
+
     private void errorCheck(StringBuilder sentence) throws Exception {
-        String expression = sentence.toString();
-        if(expression.contains("  ") || expression.contains("..")){
+        errorSign(sentence.toString());
+        errorDecimal(sentence.toString());
+    }
+
+    private void errorSign(String expression) throws Exception {
+        if (expression.contains("  ")) {
+            throw new Exception();
+        }
+    }
+
+    private void errorDecimal(String expression) throws Exception {
+        if (expression.contains("..")) {
             throw new Exception();
         }
     }
