@@ -1,5 +1,7 @@
 package S01;
 
+import javax.swing.*;
+
 public class SentenceSplit {
     private static final char ZERO = '0';
     private static final char NINE = '9';
@@ -16,19 +18,25 @@ public class SentenceSplit {
     }
 
     // 구별된 부호와 숫자 리턴
-    public String[] divide(String args) {
+    public String[] divide(String args) throws Exception {
         return findWord(args);
     }
 
     // String[] 으로 부호와 숫자 구별
-    private String[] findWord(String args) {
+    private String[] findWord(String args) throws Exception {
         wordSplit.delete(0, wordSplit.length());
         for (int i = 0; i < args.length(); i++) {
             String word = compareByWord(args.charAt(i));
             wordSplit.append(word);
         }
+        check(wordSplit);
         return wordSplit.toString()
                 .split(" ");
+    }
+    private void check(StringBuilder sentence) throws Exception {
+        if(sentence.toString().contains("  ")){
+            throw new Exception();
+        }
     }
 
     // 숫자와 부호를 구별

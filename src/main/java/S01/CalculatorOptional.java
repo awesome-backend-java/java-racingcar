@@ -14,7 +14,7 @@ public class CalculatorOptional {
     }
 
     // 입력된정보 숫자와,부호 나눠서 앞에서부터 세개씩 계산
-    public String computeAll(String args) {
+    public String computeAll(String args) throws Exception {
         String[] expression = argsSplit.divide(args); // 숫자와 부호 String[] 으로 나누기
         double total = divide(expression);
         return String.valueOf(total);
